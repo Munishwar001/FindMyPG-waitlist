@@ -1,13 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const AVATARS = [
-  { emoji: "👩", bg: "#dbeafe" },
-  { emoji: "👨", bg: "#dcfce7" },
-  { emoji: "👩‍💼", bg: "#fce7f3" },
-  { emoji: "🧑", bg: "#fef3c7" },
-  { emoji: "👩‍🎓", bg: "#ede9fe" },
+  // { src: "/avatars/avatar1.png", alt: "Priya" },
+  { src: "/avatars/avatar2.png", alt: "Rahul" },
+  { src: "/avatars/avatar3.png", alt: "Anjali" },
+  { src: "/avatars/avatar4.png", alt: "Arjun" },
+  { src: "/avatars/avatar5.png", alt: "Neha" },
 ];
 
 const BADGES = [
@@ -17,6 +18,7 @@ const BADGES = [
 ];
 
 export function SocialProof({ count }: { count: number }) {
+
   return (
     <section className="social-proof">
       <motion.div
@@ -33,9 +35,9 @@ export function SocialProof({ count }: { count: number }) {
               <div
                 key={i}
                 className="sp-avatar"
-                style={{ background: a.bg, zIndex: AVATARS.length - i }}
+                style={{ zIndex: AVATARS.length - i }}
               >
-                {a.emoji}
+                <Image src={a.src} alt={a.alt} width={40} height={40} style={{ objectFit: "cover", width: "100%", height: "100%" }} />
               </div>
             ))}
             <div className="sp-avatar sp-avatar-more">+</div>
