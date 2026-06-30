@@ -1,48 +1,122 @@
-import { ShieldCheckIcon, ZapOffIcon, UsersIcon } from "@/components/icons";
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  ShieldCheck,
+  Zap,
+  Users,
+  Camera,
+  SlidersHorizontal,
+  Bell,
+  GraduationCap,
+  Train,
+  Star,
+} from "lucide-react";
 
 const FEATURES = [
   {
-    icon: ShieldCheckIcon,
-    title: "100% Verified",
+    icon: ShieldCheck,
+    title: "Verified Listings",
     description:
-      "Every property is physically verified by our team. No fake photos, no false promises.",
+      "Every property is physically inspected by our team. Real photos, real rooms, no surprises.",
   },
   {
-    icon: ZapOffIcon,
+    icon: Zap,
     title: "Zero Brokerage",
     description:
-      "Connect directly with owners and property managers. Save thousands on unnecessary fees.",
+      "Connect directly with owners and save thousands. No middlemen, no hidden charges.",
   },
   {
-    icon: UsersIcon,
-    title: "Find Your Tribe",
+    icon: Users,
+    title: "Flatmate Matching",
     description:
-      "Match with flatmates based on lifestyle, habits, and preferences, not just budget.",
+      "Our algorithm matches you with flatmates based on lifestyle, habits, and preferences.",
+  },
+  {
+    icon: Camera,
+    title: "Real Photos",
+    description:
+      "360° verified photos taken by our team. What you see is exactly what you get.",
+  },
+  {
+    icon: SlidersHorizontal,
+    title: "Smart Filters",
+    description:
+      "Filter by gender, meals, AC, WiFi, furnishing, budget, and 20+ more parameters.",
+  },
+  {
+    icon: Bell,
+    title: "Instant Alerts",
+    description:
+      "Get notified the moment a property matching your criteria becomes available.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Nearby Colleges",
+    description:
+      "Find PGs within walking distance of your college or university campus.",
+  },
+  {
+    icon: Train,
+    title: "Nearby Metro",
+    description:
+      "Smart commute filters show properties near metro stations and bus stops.",
+  },
+  {
+    icon: Star,
+    title: "Property Reviews",
+    description:
+      "Honest reviews from verified residents. Know what you're signing up for.",
   },
 ];
 
+const EASE = [0.21, 0.47, 0.32, 0.98] as [number, number, number, number];
+
+const containerVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+};
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
+};
+
 export function Features() {
   return (
-    <section className="features">
-      <div className="section-head">
-        <h2>Why choose FindMyPG</h2>
-        <p>
-          We&apos;re reimagining how you find your next home with transparency
-          and verified listings.
-        </p>
+    <section className="features-section" id="features">
+      <div className="section-header">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="section-eyebrow">Why FindMyPG</span>
+          <h2 style={{ marginTop: 12 }}>Built for how you actually live</h2>
+          <p style={{ marginTop: 16 }}>
+            Every feature is designed to make your search faster, safer,
+            and completely stress-free.
+          </p>
+        </motion.div>
       </div>
 
-      <div className="feature-grid">
+      <motion.div
+        className="features-grid"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-60px" }}
+      >
         {FEATURES.map(({ icon: Icon, title, description }) => (
-          <div className="feature-card" key={title}>
-            <span className="feature-icon">
-              <Icon />
-            </span>
+          <motion.div key={title} className="feature-card" variants={cardVariants}>
+            <div className="feature-icon">
+              <Icon size={22} />
+            </div>
             <h3>{title}</h3>
             <p>{description}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

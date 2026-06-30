@@ -2,9 +2,9 @@
 
 export function JoinWaitlistButton() {
   function handleClick() {
-    const input = document.getElementById("waitlist-email");
-    input?.scrollIntoView({ behavior: "smooth", block: "center" });
-    (input as HTMLInputElement | null)?.focus();
+    document
+      .getElementById("final-cta")
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   return (

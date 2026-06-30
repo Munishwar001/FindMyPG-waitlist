@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import React, { useEffect, useState } from "react";
 
 type Status = "idle" | "loading" | "success" | "already" | "error";
 
@@ -22,8 +22,8 @@ export function WaitlistForm({
     }
   }, [status]);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     setStatus("loading");
     setErrorMessage("");
 
@@ -71,7 +71,7 @@ export function WaitlistForm({
       {status === "error" && <p className="form-error">{errorMessage}</p>}
 
       <div className={`toast ${toastVisible ? "show" : ""}`} role="status">
-        {status === "already" ? "Already on the list 👀" : "You're on the list! 🎉"}
+        {status === "already" ? "Already on the list 👀" : "You&apos;re on the list! 🎉"}
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { MapPinIcon } from "@/components/icons";
+import React, { useState } from "react";
+import { MapPin } from "lucide-react";
 
 const TABS = ["PG", "Flat", "Flatmate"] as const;
 type Tab = (typeof TABS)[number];
@@ -10,11 +10,10 @@ export function PropertySearch() {
   const [tab, setTab] = useState<Tab>("PG");
   const [query, setQuery] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const input = document.getElementById("waitlist-email");
-    input?.scrollIntoView({ behavior: "smooth", block: "center" });
-    (input as HTMLInputElement | null)?.focus();
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const el = document.getElementById("final-cta");
+    el?.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   return (
@@ -31,19 +30,18 @@ export function PropertySearch() {
           </button>
         ))}
       </div>
-
       <form className="search-row" onSubmit={handleSubmit}>
         <div className="search-input-wrap">
-          <MapPinIcon />
+          <MapPin size={17} />
           <input
             type="text"
-            placeholder="Search by city, neighborhood, or landmark"
+            placeholder={`Search ${tab === "Flatmate" ? "your city or area" : `${tab}s by city, area, or landmark`}`}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
         </div>
         <button type="submit" className="btn-primary">
-          Find Now
+          Join Waitlist
         </button>
       </form>
     </div>
