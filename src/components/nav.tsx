@@ -30,8 +30,8 @@ export function Nav() {
     <nav className={scrolled ? "nav--scrolled" : ""}>
       <div className="nav-inner">
         <a href="#top" className="logo">
-          <div className="logo-icon">
-            <Home size={18} strokeWidth={2.5} />
+          <div className="logo-icon logo-icon--image">
+            <img src="/logo.png" alt="FindMyPG Logo" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
           <span className="logo-text">FindMy<span className="logo-highlight">PG</span></span>
         </a>
