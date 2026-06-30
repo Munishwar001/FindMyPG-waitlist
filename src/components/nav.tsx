@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Home } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Features", href: "#features" },
@@ -31,7 +32,7 @@ export function Nav() {
       <div className="nav-inner">
         <a href="#top" className="logo">
           <div className="logo-icon logo-icon--image">
-            <img src="/logo.png" alt="FindMyPG Logo" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <Image src="/logo.png" alt="FindMyPG Logo" width={72} height={72} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
           </div>
           <span className="logo-text">FindMy<span className="logo-highlight">PG</span></span>
         </a>
