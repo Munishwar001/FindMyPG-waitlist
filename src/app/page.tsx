@@ -6,7 +6,6 @@ import { HowItWorks } from "@/components/how-it-works";
 import { ProductShowcase } from "@/components/product-showcase";
 import { Features } from "@/components/features";
 import { Cities } from "@/components/cities";
-import { EarlyAccess } from "@/components/early-access";
 import { FAQ } from "@/components/faq";
 import { CTASection } from "@/components/cta-section";
 import { Footer } from "@/components/footer";
@@ -35,7 +34,6 @@ export default async function Home() {
       <ProductShowcase />
       <Features />
       <Cities />
-      <EarlyAccess />
       <FAQ />
       <CTASection />
       <Footer />
