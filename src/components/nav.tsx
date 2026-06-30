@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "Features", href: "#features" },
@@ -30,7 +30,10 @@ export function Nav() {
     <nav className={scrolled ? "nav--scrolled" : ""}>
       <div className="nav-inner">
         <a href="#top" className="logo">
-          FindMyPG
+          <div className="logo-icon">
+            <Home size={18} strokeWidth={2.5} />
+          </div>
+          <span className="logo-text">FindMy<span className="logo-highlight">PG</span></span>
         </a>
 
         <div className="nav-links">
@@ -61,9 +64,6 @@ export function Nav() {
               {link.label}
             </a>
           ))}
-          <button className="nav-cta" onClick={scrollToWaitlist}>
-            Join Waitlist
-          </button>
         </div>
       )}
     </nav>

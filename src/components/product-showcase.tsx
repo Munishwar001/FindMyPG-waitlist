@@ -59,7 +59,7 @@ function SearchScreen() {
         {/* Filter chips */}
         <div style={{ display: "flex", gap: 5, flexWrap: "wrap", marginBottom: 4 }}>
           {["₹5–10k", "PG", "For Girls", "Meals"].map((f) => (
-            <span key={f} style={{ background: "var(--primary-light)", color: "var(--primary)", fontSize: 9, fontWeight: 700, padding: "3px 8px", borderRadius: 999, border: "1px solid rgba(59,92,245,0.2)" }}>{f}</span>
+            <span key={f} style={{ background: "var(--primary-light)", color: "var(--primary)", fontSize: 9, fontWeight: 700, padding: "3px 8px", borderRadius: 999, border: "1px solid var(--primary-glow)" }}>{f}</span>
           ))}
         </div>
         {[

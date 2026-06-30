@@ -1,5 +1,6 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
+import { Marquee } from "@/components/marquee";
 import { SocialProof } from "@/components/social-proof";
 import { Problems } from "@/components/problems";
 import { HowItWorks } from "@/components/how-it-works";
@@ -9,6 +10,7 @@ import { Cities } from "@/components/cities";
 import { FAQ } from "@/components/faq";
 import { CTASection } from "@/components/cta-section";
 import { Footer } from "@/components/footer";
+import { EarlyLaunchModal } from "@/components/early-launch-modal";
 import { prisma } from "@/lib/prisma";
 
 const BASE_COUNT = 2400;
@@ -28,6 +30,7 @@ export default async function Home() {
     <>
       <Nav />
       <Hero />
+      <Marquee />
       <SocialProof count={count} />
       <Problems />
       <HowItWorks />
@@ -37,6 +40,7 @@ export default async function Home() {
       <FAQ />
       <CTASection />
       <Footer />
+      <EarlyLaunchModal />
     </>
   );
 }

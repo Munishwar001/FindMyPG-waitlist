@@ -56,17 +56,15 @@ export function Cities() {
             <div className="city-card-inner">
               <span className="city-emoji">{emoji}</span>
               <div className="city-name">{name}</div>
-              <div className="city-status">
+              <div className="city-status" style={{ justifyContent: "center", marginTop: 12 }}>
                 {status === "Launching First" ? (
-                  <>
-                    <div className="city-live-dot" />
-                    <span style={{ color: "#22c55e", fontWeight: 600 }}>Launching First</span>
-                  </>
+                  <span className="tag-brutalist tag-brutalist--green">
+                    Launching First
+                  </span>
                 ) : (
-                  <>
-                    <span style={{ fontSize: 10 }}>🔜</span>
-                    <span>{status}</span>
-                  </>
+                  <span className="tag-brutalist tag-brutalist--purple">
+                    Coming Soon
+                  </span>
                 )}
               </div>
             </div>

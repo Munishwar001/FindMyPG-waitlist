@@ -15,6 +15,7 @@ datasource db {
 model WaitlistEntry {
   id        String   @id @default(cuid())
   email     String   @unique
+  problems  String?
   createdAt DateTime @default(now())
 
   @@map("waitlist_entries")

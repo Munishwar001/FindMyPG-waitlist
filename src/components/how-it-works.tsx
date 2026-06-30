@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import { motion } from "framer-motion";
 import { Search, BarChart2, Home, ArrowRight } from "lucide-react";
 
@@ -48,9 +49,8 @@ export function HowItWorks() {
 
       <div className="hiw-steps">
         {STEPS.map(({ number, icon: Icon, title, description }, i) => (
-          <>
+          <Fragment key={title}>
             <motion.div
-              key={title}
               className="hiw-step"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ export function HowItWorks() {
                 </motion.div>
               </div>
             )}
-          </>
+          </Fragment>
         ))}
       </div>
     </section>

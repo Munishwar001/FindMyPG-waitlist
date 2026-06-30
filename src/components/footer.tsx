@@ -1,3 +1,5 @@
+import { Home } from "lucide-react";
+
 const PRODUCT_LINKS = [
   { label: "Features", href: "#features" },
   { label: "How it Works", href: "#how-it-works" },
@@ -65,7 +67,12 @@ export function Footer() {
       <div className="footer-top">
         {/* Brand */}
         <div className="footer-brand">
-          <div className="footer-logo">FindMyPG</div>
+          <div className="logo footer-logo" style={{ marginBottom: 16 }}>
+            <div className="logo-icon">
+              <Home size={18} strokeWidth={2.5} />
+            </div>
+            <span className="logo-text">FindMy<span className="logo-highlight">PG</span></span>
+          </div>
           <p className="footer-brand-desc">
             Helping students and working professionals find verified PGs,
             flats, and compatible flatmates — without brokers.
